@@ -11,13 +11,12 @@
 <body>
 
 <div class="container" ng-controller="HomeController">
-    <form>
+    <form ng-submit="save()">
         <div class="row">
             <div class="col-md-3">
                 <label for="count">Home</label>
                 <div>
-                    <select id="count" class="form-control">
-                        <option ng-repeat="home in homes | orderBy: sortparam" value="{{home.homeName}}">{{home.homeName}}</option>
+                    <select id="count" class="form-control"  ng-model="homes.model" ng-options="option.homeName for option in homes track by option.id">
                     </select>
                 </div>
             </div>
@@ -27,19 +26,19 @@
             <div class="col-md-3">
                 <label for="addHomeName">Add home</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="addHomeName">
+                    <input type="text" class="form-control" id="addHomeName" ng-model="newName">
                     <span class="input-group-btn">
-                        <button class="btn btn-default btn-add" type="button" ng-click="addOpt()">Add home</button>
+                        <button class="btn btn-default btn-add" type="button" ng-click="homes.push({homeName:newName})">Add home</button>
                     </span>
                 </div>
             </div>
 
             <div class="col-md-3">
-                <label for="editHomeName">Edit home</label>
+                <label for="editHomeName">Edit home {{homes.model.homeName}}</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="editHomeName" placeholder="Enter the home name">
+                    <input type="text" class="form-control" id="editHomeName" placeholder="Enter the home name" ng-model="homes.model.homeName">
                     <span class="input-group-btn">
-                        <button class="btn btn-default btn-edit" type="button">Save</button>
+                        <button class="btn btn-default btn-edit" type="button" ng-click="">Save</button>
                     </span>
                 </div>
             </div>
@@ -51,7 +50,9 @@
 
 <script src="js/libs/jquery-3.2.1.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/libs/homekit.vanilla_tools.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/homeController.js"></script>
+<script src="js/controllers/addController.js"></script>
 
 </html>

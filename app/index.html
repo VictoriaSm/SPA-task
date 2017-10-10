@@ -11,39 +11,40 @@
 <body>
 
 <div class="container" ng-controller="HomeController">
-    <form ng-submit="save()">
-        <div class="row">
-            <div class="col-md-3">
-                <label for="count">Home</label>
-                <div>
-                    <select id="count" class="form-control"  ng-model="homes.model" ng-options="option.homeName for option in homes track by option.id">
-                    </select>
-                </div>
+    <div class="row">
+        <div class="col-md-3">
+            <label for="count">Home</label>
+            <div>
+                <select id="count" class="form-control" ng-model="homes.model" ng-options="option.homeName for option in homes">
+                </select>
             </div>
         </div>
+    </div>
 
-        <div class="row">
+    <div class="row">
+        <form name="addForm" ng-submit="add()">
             <div class="col-md-3">
-                <label for="addHomeName">Add home</label>
+                <label>Add home</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="addHomeName" ng-model="newName">
+                    <input type="text" required ng-minlength="minlength" class="form-control" ng-model="newName">
                     <span class="input-group-btn">
-                        <button class="btn btn-default btn-add" type="button" ng-click="homes.push({homeName:newName})">Add home</button>
+                        <button class="btn btn-default btn-add" type="submit" ng-click="homes.push({homeName:newName})" >Add home</button>
                     </span>
                 </div>
             </div>
-
+        </form>
+        <form name="saveForm" ng-submit="save()">
             <div class="col-md-3">
-                <label for="editHomeName">Edit home {{homes.model.homeName}}</label>
+                <label>Edit home</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="editHomeName" placeholder="Enter the home name" ng-model="homes.model.homeName">
+                    <input type="text" class="form-control" ng-model="homes.model.homeName" required ng-minlength="minlength" ng-model-options="{ updateOn: 'submit' }">
                     <span class="input-group-btn">
-                        <button class="btn btn-default btn-edit" type="button" ng-click="">Save</button>
+                        <button class="btn btn-default btn-edit" type="submit" ng-disabled="saveForm.$invalid">Save</button>
                     </span>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 </body>

@@ -6,13 +6,5 @@ homeApp.controller('HomeController', function ($scope, $http){
 
         $scope.minlength = 3;
 
-        $scope.add = function () {
-            if ($scope.newName === 'qwer' ) {
-                $scope.addForm.$error;
-            } else $scope.newName = '';
-        };
-        $scope.save = function () {
-
-        };
     }
 );

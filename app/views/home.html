@@ -1,0 +1,36 @@
+<div ng-controller="HomeController">
+    <div class="row">
+        <div class="col-md-3">
+            <label for="count">Home</label>
+            <div>
+                <select id="count" class="form-control" ng-model="homes.model" ng-options="option.homeName for option in homes">
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <form name="addForm">
+            <div class="col-md-3">
+                <label>Add home</label>
+                <div class="input-group" ng-class="{ 'has-error' : addForm.newName.$invalid && !addForm.newName.$pristine }">
+                    <input type="text" class="form-control" name="newName" required ng-model="newName" ng-minlength="minlength">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-add" type="submit" ng-click="homes.push({homeName:newName})" ng-disabled="addForm.$invalid">Add home</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+        <form name="saveForm">
+            <div class="col-md-3">
+                <label>Edit home</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="editName" required ng-model="homes.model.homeName" ng-minlength="minlength" ng-model-options="{ updateOn: 'submit' }">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-edit" type="submit">Save</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

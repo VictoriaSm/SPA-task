@@ -16,7 +16,7 @@
         <div class="col-md-3">
             <label for="count">Home</label>
             <div>
-                <select id="count" class="form-control" ng-model="homes.model" ng-options="option.homeName for option in homes">
+                <select id="count" class="form-control" ng-model="homes.model" ng-options="option.homeName for option in homes track by option._id">
                 </select>
             </div>
         </div>
@@ -26,18 +26,18 @@
         <div class="col-md-3">
             <label>Add home</label>
             <div class="input-group">
-                <input type="text" ng-keypress="removeClass()" id="addName" class="form-control" name="newName" ng-model="newName">
+                <input type="text" class="form-control" name="newName" ng-model="newName" ng-class="{'error': error}">
                 <span class="input-group-btn">
-                    <button class="btn btn-default btn-add" ng-click="addElem(newName)">Add home</button>
+                    <button class="btn btn-default btn-add" ng-click="addElem(newName)" ng-class="{'error': error}">Add home</button>
                 </span>
             </div>
         </div>
         <div class="col-md-3">
             <label>Edit home</label>
             <div class="input-group">
-                <input type="text" class="form-control" name="editName" ng-model="homes.model.homeName" ng-model-options="{ updateOn: 'submit' }">
+                <input type="text" class="form-control" name="editName" ng-model="homes.model.homeName" ng-class="{'error': errorClone}">
                 <span class="input-group-btn">
-                    <button class="btn btn-default btn-edit" type="submit" ng-click="editElem()">Save</button>
+                    <button class="btn btn-default btn-edit" ng-click="editElem(homes.model)" ng-class="{'error': errorClone}">Save</button>
                 </span>
             </div>
         </div>

@@ -6,7 +6,7 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#!login">Log out</a></li>
+                <li><a href="#">Log out</a></li>
             </ul>
         </div>
     </nav>
@@ -16,7 +16,7 @@
         <div class="col-md-3">
             <label for="count">Home</label>
             <div>
-                <select id="count" class="form-control" ng-model="homes.model" ng-options="option.homeName for option in homes track by option._id">
+                <select id="count" class="form-control" ng-model="selected" ng-options="option.homeName for option in homes track by option._id">
                 </select>
             </div>
         </div>
@@ -35,9 +35,9 @@
         <div class="col-md-3">
             <label>Edit home</label>
             <div class="input-group">
-                <input type="text" class="form-control" name="editName" ng-model="homes.model.homeName" ng-class="{'error': errorClone}">
+                <input type="text" class="form-control" name="editName" ng-model="selected.homeName" ng-class="{'error': errorClone}">
                 <span class="input-group-btn">
-                    <button class="btn btn-default btn-edit" ng-click="editElem(homes.model)" ng-class="{'error': errorClone}">Save</button>
+                    <button class="btn btn-default btn-edit" ng-click="editElem(selected)" ng-class="{'error': errorClone}">Save</button>
                 </span>
             </div>
         </div>

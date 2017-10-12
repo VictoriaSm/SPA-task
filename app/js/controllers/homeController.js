@@ -18,17 +18,21 @@ homeApp.controller('homeController', ['$scope','$http',function (scope, $http){
             }
         };
 
-        scope.editElem = function (s) {
+        scope.editElem = function (elem) {
 
-            scope.homes[0].homeName = 'test'
-            var a = s.homeName;
+            var a = elem.homeName;
             if ( a == undefined || a == '' || a.replace(/\s/g,'') == '' || a.length < 3 ) {
                 scope.errorClone = true;
             }
             else {
-                console.log(a);
+                scope.errorClone = false;
+                scope.homes.forEach(function (home) {
+                    if ( home._id == elem._id ) {
+                        return home.homeName = a;
+                    }
+                });
             }
-            console.log(s);
+
         };
     }]
 );

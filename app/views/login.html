@@ -6,12 +6,12 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Sign up</a></li>
+                <li><a href="#!register">Sign up</a></li>
             </ul>
         </div>
     </nav>
 </div>
-<div class="container" ng-controller="formController">
+<div class="container" ng-controller="loginController">
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4 form-style">
@@ -30,8 +30,8 @@
                     <p ng-show="loginForm.password.$error.minlength" class="help-block">Password is too short.</p>
                 </div>
 
-                <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Log in</button>
-
+                <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-click="logIn()">Log in</button>
+                <a href="#!/register" class="btn btn-link">Register</a>
             </form>
         </div>
     </div>

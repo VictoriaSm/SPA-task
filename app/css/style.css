@@ -5,11 +5,18 @@ body {
 label {
     font-size: 18px;
     font-weight: bold;
-    margin-top: 15px;
 }
 
 select {
     padding-left: 30px;
+}
+
+.form-style {
+    padding-top: 15px;
+}
+
+.row-form{
+    margin-top: 15px;
 }
 
 .error {

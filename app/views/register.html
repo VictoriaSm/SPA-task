@@ -18,10 +18,10 @@
 
             <form name="userForm" ng-submit="register(userForm)">
 
-                <div class="form-group" ng-class="{ 'has-error' : userForm.login.$invalid && !userForm.login.$pristine || loginError }">
+                <div class="form-group" ng-class="{ 'has-error' : userForm.login.$invalid && !userForm.login.$pristine }">
                     <label>Login*:</label>
                     <input type="text" name="login" class="form-control" ng-model="user.login" ng-minlength="4" required>
-                    <p ng-show="loginError" class="help-block">Your login is required.</p>
+                    <p ng-show="userForm.login.$invalid && !userForm.login.$pristine" class="help-block">Your login is required.</p>
                     <p ng-show="userForm.login.$error.minlength" class="help-block">Your login is too short.</p>
                 </div>
 

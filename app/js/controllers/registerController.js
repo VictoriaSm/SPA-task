@@ -5,9 +5,7 @@ function registerController(scope, location) {
     scope.user = {};
 
     scope.register = function(userForm) {
-        if ( scope.user.login === undefined || scope.user.login === '' || scope.user.login.replace(/\s/g,'') === '' ) {
-            scope.loginError = true;
-        } else scope.loginError = false;
+
         if ( userForm.$invalid ) {
             return;
         }
@@ -15,6 +13,9 @@ function registerController(scope, location) {
             scope.passwordError = true;
             return;
         }
+
+        var hash = md5(scope.user.password);
+        scope.user.password = hash;
 
         localStorage.setItem('user', JSON.stringify(scope.user));
         location.path('/');

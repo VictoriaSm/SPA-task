@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="homeApp">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="js/libs/md5.min.js"></script>
-    <script src="js/libs/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
-    <script src="js/libs/jquery-3.2.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controllers/homeController.js"></script>
-    <script src="js/controllers/loginController.js"></script>
-    <script src="js/controllers/registerController.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
 
-    <title>Title</title>
 </head>
 <body>
-
 <div>
-    <div ng-view></div>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Angular Routing</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <div class="row row-form">
+        <div class="col-md-3">
+            <label for="count">Home</label>
+            <div>
+                <select id="count" class="form-control" ></select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-form">
+        <div class="col-md-3">
+            <label for="addHomeName">Add home</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="addHomeName">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-add" type="button">Add home</button>
+                </span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="editHomeName">Edit home</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="editHomeName" placeholder="Enter the home name">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-edit" type="button">Save</button>
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
 
+<script src="assets/js/libs/homekit.vanilla_tools.js"></script>
+<script src="assets/js/homes.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script src="assets/js/libs/jquery-3.2.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>

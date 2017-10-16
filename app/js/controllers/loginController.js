@@ -22,5 +22,6 @@ function loginController(scope, location) {
         }
 
         location.path('/home');
+        localStorage.setItem('authorization', 1);
     };
 }

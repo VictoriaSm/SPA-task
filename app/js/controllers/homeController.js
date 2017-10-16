@@ -5,7 +5,9 @@ homeApp.controller('homeController', ['$scope','$http',function (scope, $http){
             scope.homes = response.data;
         });
 
-        scope.logout = function () {};
+        scope.logout = function () {
+            localStorage.setItem('authorization', 0);
+        };
 
         scope.addElem = function (elem) {
 

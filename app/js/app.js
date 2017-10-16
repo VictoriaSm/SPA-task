@@ -17,3 +17,4 @@ homeApp.config(function($routeProvider) {
 
 });
 
+localStorage.setItem('authorization', 0);

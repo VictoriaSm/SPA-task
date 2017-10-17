@@ -5,6 +5,17 @@ function getHomeNames( arrHome ) {
     });
 }
 
+function getRoomNames( arrRoom ) {
+    var obj = {};
+    var k = arrRoom.map(function(item){
+        return item.rooms;
+    });
+
+    var m = k.map(function (t) {
+        return obj = t;
+    });
+}
+
 /*Task 2 --> Task 5*/
 var select = document.getElementById('count');
 var inputEdit = document.getElementById('editHomeName');
@@ -15,7 +26,6 @@ select.addEventListener("click", function ( event ) {
     inputEdit.value = event.target[index].innerHTML;
 
 });
-
 
 /*Task 3*/
 var btnAdd = document.querySelector('.btn-add');
@@ -63,7 +73,6 @@ btnEdit.addEventListener( 'click', function() {
     }
 });
 
-
 /*Task 7*/
 inputEdit.onkeypress = function () {
     inputEdit.classList.remove('error');
@@ -75,6 +84,12 @@ inputAdd.onkeypress = function () {
     btnAdd.classList.remove('error');
 };
 
+// var rooms =
+    getRoomNames( home );
+//
+// rooms.forEach(function (t) {
+//     console.log(t);
+// });
 
 
 

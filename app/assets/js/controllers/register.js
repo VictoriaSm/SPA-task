@@ -18,7 +18,7 @@ function formValidation() {
     var validationConfig = {
         login: {
             required: true,
-            minLength: 6
+            minLength: 5
         },
         email: {
             required: true
@@ -80,6 +80,8 @@ function formValidation() {
         user.name = document.querySelector('.name');
         user.age = document.querySelector('.age');
         localStorage.setItem('user', JSON.stringify(user));
+        alert('Success');
+        document.location.hash = "login";
     }
 
     return isValid;

@@ -1,8 +1,8 @@
 function saveProfile() {
     var userProfile = {
-        name: document.querySelector('.name'),
-        age: document.querySelector('.age'),
-        password: document.querySelector('.password')
+        name: document.querySelector('.nameEdit'),
+        age: document.querySelector('.ageEdit'),
+        password: document.querySelector('.passwordEdit')
     };
 
     var user = JSON.parse(localStorage.getItem('user'));

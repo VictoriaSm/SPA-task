@@ -1,9 +1,8 @@
-<body>
 <div>
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">JS Routing</a>
+                <a class="navbar-brand" href="#">JS Routing</a>
             </div>
 
             <ul class="nav navbar-nav navbar-right">
@@ -15,7 +14,7 @@
 <div class="container">
     <div class="row row-form">
         <div class="col-sm-4 col-sm-offset-4 form-style">
-            <form name="userForm" onsubmit="return formValidation()" method="post">
+            <!--<form name="userForm" onsubmit="return formValidation()" method="post">-->
 
                 <div class="form-group" >
                     <label>Login*:</label>
@@ -51,17 +50,10 @@
                     <input pattern="^[ 0-9]+$" name="age" class="form-control age">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Register</button>
-                <a href="#" class="btn btn-link loginForm">Log in</a>
+                <button onclick="return formValidation()" class="btn btn-primary">Register</button>
+                <a href="#login" class="btn btn-link loginForm">Log in</a>
 
-            </form>
+            <!--</form>-->
         </div>
     </div>
 </div>
-
-<!--<script src="../assets/js/libs/homekit.vanilla_tools.js"></script>-->
-<!--<script src="../assets/js/libs/jquery-3.2.1.min.js"></script>-->
-<!--<script src="../assets/bootstrap/js/bootstrap.min.js"></script>-->
-<!--<script src="../assets/js/libs/md5.min.js"></script>-->
-<!--<script src="../assets/js/controllers/register.js"></script>-->
-</body>

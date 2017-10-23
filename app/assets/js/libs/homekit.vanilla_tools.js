@@ -241,6 +241,14 @@ var VT = (function () {
         el.innerHTML += html;
     }
 
+    function obj_to_query_str(params){
+        var uri = [];
+        obj_forEach(params, function(item, key){
+            uri.push(key + '=' + encodeURIComponent(item));
+        });
+        return uri.join('&');
+    }
+
     function send(method, url, params, ecb, scb) {
         if (!method || !url) ecb({error: "no params"});
         params = params ? JSON.stringify(params) : null;

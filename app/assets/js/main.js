@@ -1,7 +1,8 @@
-const r = new Router(
+var r = new Router(
     {
-        login: new Layout(new Page('login.html')),
-        '#default': new Page('register.html'),
-    },
-    document.querySelector('main')
+        login: new Page('login.html'),
+        register: new Page('register.html'),
+        edit: new Page('editProfile.html'),
+        homes: new Page('homes.html')
+    }
 );

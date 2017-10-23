@@ -1,7 +1,7 @@
 function formLogin() {
     var userInfoLog = {
-        login: document.querySelector('.login'),
-        password: document.querySelector('.password')
+        login: document.querySelector('.loginLog'),
+        password: document.querySelector('.passwordLog')
     };
     var isValue = true;
 
@@ -18,8 +18,13 @@ function formLogin() {
         }
     };
 
+    if ( userLog === null ) {
+        alert('You are not registered');
+        return;
+    }
+
     isCoincidence();
-    
+
     function isCoincidence() {
         VT.obj_forEach(validConfig, function (item, key) {
             if ( item.required ) {
@@ -45,6 +50,12 @@ function formLogin() {
                 }
             }
         });
+    }
+
+    if ( isValue === true ) {
+        alert('Success');
+        document.location.hash = "edit";
+        localStorage.setItem('authorized', 1);
     }
 
     return isValue;

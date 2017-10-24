@@ -1,11 +1,19 @@
+var el = document.querySelector('main');
+
+var pageContent = {};
+var scriptFlag = {};
+
+function addScript( path ) {
+    var script = document.createElement('script');
+    script.src = 'assets/js/controllers/' + path;
+    document.body.appendChild(script);
+}
+
 function Page( url ) {
     this.url = '/spa/app/views/' + url;
 }
 
-var el = document.querySelector('main');
-var pageContent = {};
-
-Page.prototype.load = function (path) {
+Page.prototype.load = function (path, pathScript) {
     if(!path){
         return console.error(404);
     }
@@ -13,6 +21,8 @@ Page.prototype.load = function (path) {
 
     function render(res){
         el.innerHTML = res;
+        addScript(pathScript);
+        scriptFlag[path] = true;
         pageContent[path] = res;
     }
 
@@ -21,6 +31,9 @@ Page.prototype.load = function (path) {
     }
 };
 
-Page.prototype.show = function (path) {
+Page.prototype.show = function (path, func) {
     el.innerHTML = pageContent[path];
+    if ( scriptFlag[path] === true ) {
+        window[func]();
+    }
 };

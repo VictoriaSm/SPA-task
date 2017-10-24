@@ -54,7 +54,7 @@ function formLogin() {
 
     if ( isValue === true ) {
         alert('Success');
-        document.location.hash = "edit";
+        document.location.hash = "homes";
         localStorage.setItem('authorized', 1);
     }
 

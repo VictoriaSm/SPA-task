@@ -1,8 +1,21 @@
 var r = new Router(
     {
-        login: new Page('login.html'),
-        register: new Page('register.html'),
-        edit: new Page('editProfile.html'),
-        homes: new Page('homes.html')
+        login: {
+            template: new Page('login.html'),
+            controller: 'login.js'
+        },
+        register: {
+            template: new Page('register.html'),
+            controller: 'register.js'
+        },
+        edit: {
+            template: new Page('editProfile.html'),
+            controller: 'edit.js'
+        },
+        homes: {
+            template: new Page('homes.html'),
+            controller: 'homes.js',
+            execFunc: 'homesList'
+        }
     }
 );

@@ -1,20 +1,8 @@
-function getUrl( url ){
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, false);
-    xhr.send(null);
-    return xhr.responseText;
-}
-
-var homesObj = JSON.parse(getUrl( 'homes.json' ));
-
-// if ( document.location.hash === '#homes' ) homesList();
-
-// var div = document.querySelector('#homes');
-document.querySelector('#homes').addEventListener('DOMContentLoaded', homesList);
+homesList();
 
 function homesList() {
 
-    console.log(123);
+    var homes = getHomeNames( homesObj );
 
     function getHomeNames( arrHome ) {
         return arrHome.map(function(item){
@@ -37,7 +25,6 @@ function homesList() {
 //     });
 // }
 
-    var homes = getHomeNames( homesObj );
     var select = document.querySelector('#count');
 
     homes.forEach(function (item) {

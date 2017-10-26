@@ -11,15 +11,13 @@ function formLogin() {
     var validConfig = {
         login: {
             required: true
-        }
-        ,
+        },
         password: {
             md5: true
         }
     };
 
     if ( userLog === null ) {
-        alert('You are not registered');
         return;
     }
 
@@ -53,7 +51,6 @@ function formLogin() {
     }
 
     if ( isValue === true ) {
-        alert('Success');
         document.location.hash = "homes";
         localStorage.setItem('authorized', 1);
     }

@@ -80,7 +80,6 @@ function formValidation() {
         user.name = document.querySelector('.name');
         user.age = document.querySelector('.age');
         localStorage.setItem('user', JSON.stringify(user));
-        alert('Success');
         document.location.hash = "login";
     }
 

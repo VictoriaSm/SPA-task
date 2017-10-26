@@ -1,19 +1,29 @@
-var el = document.querySelector('main');
+var el = document.querySelector('#main');
+var nav = document.querySelector('.nav');
 
 var pageContent = {};
 var scriptFlag = {};
 
-function addScript( path ) {
-    var script = document.createElement('script');
-    script.src = 'assets/js/controllers/' + path;
-    document.body.appendChild(script);
-}
-
-function Page( url ) {
+function Page( url, needFn ) {
+    this.needFn = needFn;
     this.url = '/spa/app/views/' + url;
+    this.scriptLoaded = false;
+    this.pageLoaded = false;
 }
 
-Page.prototype.load = function (path, pathScript) {
+Page.prototype.addScript =  function ( path ) {
+    var _this = this;
+    var script = document.createElement('script');
+    script.src = 'assets/js/controllers/' + path + '.js';
+    document.head.appendChild(script);
+    script.onload = function(){
+        scriptFlag[path] = true;
+        _this.execFuncF(path,'script');
+    }
+};
+
+Page.prototype.load = function (path) {
+    var _this = this;
     if(!path){
         return console.error(404);
     }
@@ -21,9 +31,8 @@ Page.prototype.load = function (path, pathScript) {
 
     function render(res){
         el.innerHTML = res;
-        addScript(pathScript);
-        scriptFlag[path] = true;
         pageContent[path] = res;
+        _this.execFuncF(path, 'page');
     }
 
     function errorHandler(code, error) {
@@ -31,9 +40,24 @@ Page.prototype.load = function (path, pathScript) {
     }
 };
 
-Page.prototype.show = function (path, func) {
+Page.prototype.show = function (path) {
     el.innerHTML = pageContent[path];
-    if ( scriptFlag[path] === true ) {
-        window[func]();
+};
+
+Page.prototype.execFuncF = function (path, type) {
+    if(type === 'page'){
+        this.pageLoaded = true;
+    }
+    if(type === 'script'){
+        this.scriptLoaded = true;
+    }
+    if (this.pageLoaded && this.scriptLoaded && this.needFn){
+        window[path + 'Func']();
+    }
+};
+
+Page.prototype.execFunc = function (path) {
+    if ( scriptFlag[path] && this.needFn) {
+        window[path + 'Func']();
     }
 };

@@ -9,7 +9,7 @@
         <div class="col-md-3 col-md-offset-2">
             <label>Room</label>
             <div>
-                <select class="form-control"></select>
+                <select  id="room" class="form-control"></select>
             </div>
         </div>
     </div>
@@ -20,7 +20,16 @@
             <div class="input-group">
                 <input type="text" class="form-control" id="addHomeName">
                 <span class="input-group-btn">
-                    <button class="btn btn-default btn-add" type="button">Add home</button>
+                    <button class="btn btn-default btn-add" type="button">Add</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-2">
+            <label for="addRoomName">Add room</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="addRoomName">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-add-room" type="button">Add</button>
                 </span>
             </div>
         </div>
@@ -33,6 +42,15 @@
                 <input type="text" class="form-control" id="editHomeName" placeholder="Enter the home name">
                 <span class="input-group-btn">
                     <button class="btn btn-default btn-edit" type="button">Save</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-2">
+            <label for="editRoomName">Edit room</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="editRoomName" placeholder="Enter the room name">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-edit-room" type="button">Save</button>
                 </span>
             </div>
         </div>
